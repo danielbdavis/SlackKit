@@ -48,8 +48,12 @@ public struct Channel {
     internal(set) public var pinnedItems = [Item]()
     internal(set) public var usersTyping = [String]()
     internal(set) public var messages = [String: Message]()
+	
+	public var json: [String: AnyObject]?
     
     internal init?(channel: [String: AnyObject]?) {
+		json = channel
+		
         id = channel?["id"] as? String
         name = channel?["name"] as? String
         created = channel?["created"] as? Int

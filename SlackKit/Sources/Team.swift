@@ -32,8 +32,12 @@ public struct Team {
     internal(set) public var prefs: [String: AnyObject]?
     internal(set) public var plan: String?
     internal(set) public var icon: TeamIcon?
+	
+	public var json: [String: AnyObject]?
     
     internal init?(team: [String: AnyObject]?) {
+		json = team
+		
         id = team?["id"] as! String
         name = team?["name"] as? String
         domain = team?["domain"] as? String

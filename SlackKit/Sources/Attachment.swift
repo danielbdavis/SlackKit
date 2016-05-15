@@ -37,8 +37,12 @@ public struct Attachment {
     public let fields: [AttachmentField]?
     public let imageURL: String?
     public let thumbURL: String?
+	
+	public var json: [String: AnyObject]?
 
     internal init?(attachment: [String: AnyObject]?) {
+		json = attachment
+		
         fallback = attachment?["fallback"] as? String
         color = attachment?["color"] as? String
         pretext = attachment?["pretext"] as? String

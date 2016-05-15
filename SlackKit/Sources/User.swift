@@ -76,8 +76,12 @@ public struct User {
     internal(set) public var preferences: [String: AnyObject]?
     // Client properties
     internal(set) public var userGroups: [String: String]?
+	
+	public var json: [String: AnyObject]?
     
     internal init?(user: [String: AnyObject]?) {
+		json = user
+		
         id = user?["id"] as? String
         name = user?["name"] as? String
         deleted = user?["deleted"] as? Bool
