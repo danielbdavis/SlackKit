@@ -39,8 +39,12 @@ public struct History {
     internal(set) public var latest: NSDate?
     internal(set) public var messages = [Message]()
     public let hasMore: Bool?
+	
+	public var json: [String: AnyObject]?
     
     internal init?(history: [String: AnyObject]?) {
+		json = history
+		
         if let latestStr = history?["latest"] as? String, latestDouble = Double(latestStr) {
             latest = NSDate(timeIntervalSince1970: NSTimeInterval(latestDouble))
         }
