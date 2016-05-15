@@ -47,8 +47,12 @@ public class Message {
     public let file: File?
     internal(set) public var reactions = [String: Reaction]()
     internal(set) public var attachments: [Attachment]?
+	
+	public var json: [String: AnyObject]?
     
     public init?(message: [String: AnyObject]?) {
+		json = message
+		
         subtype = message?["subtype"] as? String
         ts = message?["ts"] as? String
         user = message?["user"] as? String
